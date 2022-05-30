@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS SPAM CLASSIFIER | 2022</title>
+    <link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}">
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <form action="{{ url_for('predict')}}" method="post">
+                <div class="head_text">SMS SPAM CLASSIFIER </div>
+                <div class="textarea">
+                    <textarea id="email" name="message" type="text"rows="14" cols="33" placeholder="Type here. . . "></textarea>
+                </div>
+                <div class="btndiv">
+                    <button type="submit" class="btn">Predict</button>
+                    {% if prediction | safe %}
+                    <span class="love">{{prediction}}</span>
+                     {% endif %}
+                    
+                </div>
+            </form>
+        </div>
+
+    </section>
+</body>
+
+</html>
